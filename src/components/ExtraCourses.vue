@@ -20,10 +20,10 @@
 
         <v-card-text>
             <search-bar
-                :is-course="true"
-                :filter="Object.keys(allExtraCourses)"
                 :chips="true"
                 :multiple="true"
+                :is-course="true"
+                :filter="Object.keys(allExtraCourses)"
             />
         </v-card-text>
     </v-card>
