@@ -57,3 +57,13 @@ export default {
     }
 }
 </script>
+
+<style>
+.v-container {
+    max-width: none !important;
+}
+
+.v-card {
+    border-color: #969696 !important;
+}
+</style>
