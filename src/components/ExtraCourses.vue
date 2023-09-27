@@ -58,7 +58,7 @@ export default {
             const url = this.calendarType === 1 ? `url=${this.chosenBaseProgram['url']}&` : ''
             const subjects = this.calendarType === 1 ? `subjects=${this.chosenBaseCourses}&` : ''
             const extraSubjects = this.calendarType !== 0 ? `extra_subjects=${this.chosenExtraCourses}&` : ''
-            const hasBaseCalendar = this.calendarType === 1 ? 'has_base_calendar=true' : ''
+            const hasBaseCalendar = this.calendarType === 1 ? 'has_base_calendar=true' : 'has_base_calendar=false'
 
             let res = await fetch(`${import.meta.env.VITE_BASE_URL}/cshorten?`
                 + url + subjects + extraSubjects + hasBaseCalendar)
