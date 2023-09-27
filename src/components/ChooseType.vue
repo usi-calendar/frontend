@@ -51,11 +51,15 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['updateCalendarType']),
+        ...mapActions(['updateCalendarType', 'updateChosenBaseCourses', "updateChosenBaseProgram",
+            "updateChosenExtraCourses"]),
     },
     watch: {
         selection(val) {
             this.updateCalendarType(val)
+            this.updateChosenBaseProgram(undefined)
+            this.updateChosenBaseCourses([])
+            this.updateChosenExtraCourses('')
         }
     }
 }

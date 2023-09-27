@@ -20,7 +20,10 @@
         </v-toolbar>
 
         <v-card-text>
-            <search-bar :filter="Object.keys(allPrograms)" />
+            <search-bar
+                :filter="Object.keys(allPrograms)"
+                placeholder="Search program (e.g. Artificial Intelligence)"
+            />
 
             <v-list v-if="courses.length !== 0">
                 <v-list-item

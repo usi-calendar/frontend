@@ -13,13 +13,19 @@
 
             <v-spacer />
 
-            <v-btn icon :disabled="chosenExtraCourses.length === 0" @click="generateCalendar">
+            <v-btn
+                icon :disabled="
+                    chosenExtraCourses.length === 0 || (chosenBaseCourses.length === 0 && calendarType === 1)
+                "
+                @click="generateCalendar"
+            >
                 <v-icon>mdi-check</v-icon>
             </v-btn>
         </v-toolbar>
 
         <v-card-text>
             <search-bar
+                placeholder="Search course (e.g. Bioinformatics)"
                 :chips="true"
                 :multiple="true"
                 :is-course="true"

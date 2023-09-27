@@ -1,18 +1,19 @@
 <template>
     <v-autocomplete
-        :chips="chips"
-        :multiple="multiple"
         v-model="query"
-        placeholder="Search program (e.g. Artificial Intelligence)"
         variant="outlined"
         density="compact"
-        :items="filter"
-        :persistent-placeholder="true"
-        :clearable="true"
         prepend-inner-icon="mdi-magnify"
         menu-icon=""
+        :chips="chips"
+        :multiple="multiple"
+        :placeholder="placeholder"
+        :items="filter"
+        :clearable="true"
+        :persistent-placeholder="true"
         :hide-details="true"
         @update:model-value="saveQuery"
+        @click:clear="clearAll"
     />
 </template>
 
@@ -21,6 +22,7 @@ import {mapActions, mapState} from "vuex";
 
 export default {
     props: {
+        placeholder: String,
         filter: Array,
         isCourse: false,
         chips: false,
@@ -33,10 +35,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['allPrograms', 'allExtraCourses']),
+        ...mapState(['allPrograms', 'allExtraCourses', 'calendarType']),
     },
     methods: {
-        ...mapActions(['updateChosenBaseProgram', 'updateChosenExtraCourses']),
+        ...mapActions(['updateChosenBaseProgram', 'updateChosenBaseCourses', 'updateChosenExtraCourses']),
         saveQuery() {
             if (this.isCourse) {
                 if (this.query !== null) {
@@ -60,6 +62,16 @@ export default {
                     this.updateChosenBaseProgram(undefined)
                 }
             }
+        },
+        clearAll() {
+            if (!this.isCourse) {
+                this.updateChosenBaseCourses([])
+            }
+        }
+    },
+    watch: {
+        calendarType() {
+            this.query = null
         }
     }
 }
