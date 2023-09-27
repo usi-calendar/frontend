@@ -7,7 +7,7 @@ git config --global user.name "Edoardo Riggio"
 # abort on errors
 set -e
 
-git checkout --orphan gh-pages
+git checkout --orphan deploy
 
 # build
 yarn run build
@@ -17,10 +17,10 @@ echo 'www.usicalendar.me' > ./dist/CNAME
 
 git --work-tree dist add .
 git --work-tree dist commit -m "release"
-git push origin HEAD:gh-pages --force
+git push origin HEAD:deploy --force
 rm -r dist
 
-git checkout -f master
-git branch -D gh-pages
+git checkout -f main
+git branch -D deploy
 
 cd -
