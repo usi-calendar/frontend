@@ -66,4 +66,8 @@ export default {
 .v-card {
     border-color: #969696 !important;
 }
+
+.v-progress-linear__determinate, .v-progress-linear__indeterminate {
+    background: white !important;
+}
 </style>

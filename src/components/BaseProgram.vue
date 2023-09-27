@@ -103,6 +103,7 @@ export default {
         async chosenBaseProgram(value) {
             if (value) {
                 this.loading = true
+                this.courses = []
 
                 let res = await fetch(`${import.meta.env.VITE_BASE_URL}/urlinfo?url=${value['url']}`)
                 let json = await res.json()

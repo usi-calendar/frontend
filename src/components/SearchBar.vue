@@ -38,7 +38,7 @@ export default {
         ...mapState(['allPrograms', 'allExtraCourses', 'calendarType']),
     },
     methods: {
-        ...mapActions(['updateChosenBaseProgram', 'updateChosenBaseCourses', 'updateChosenExtraCourses']),
+        ...mapActions(['updateChosenBaseProgram', 'updateChosenBaseCourses', 'updateChosenExtraCourses', '']),
         saveQuery() {
             if (this.isCourse) {
                 if (this.query !== null) {
